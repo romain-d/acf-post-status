@@ -1,6 +1,6 @@
 {
   "name": "romain-d/acf-post-status",
-  "description": "Add ACF Post Status Selectof",
+  "description": "Add ACF Post Status Selector",
   "type": "wordpress-plugin",
   "license": "GPL2+",
   "keywords": ["WordPress", "ACF", "Advanced Custom Fields", "Post Status"],

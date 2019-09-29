@@ -109,8 +109,7 @@ class acf_field_post_status_select extends acf_field {
 		}
 		// vars
 		$els = [];
-
-		$data = get_post_stati();
+		$data = $this->get_status();
 		foreach ( $data as $name => $label ) {
 			$els[] = [
 				'type'     => 'option',
@@ -150,5 +149,24 @@ class acf_field_post_status_select extends acf_field {
 			}
 		}
 		echo '</select>';
+	}
+
+	/**
+	 * Return all status Slug and Label
+	 *
+	 * @return array|bool
+	 */
+	public function get_status() {
+		$status_objects = get_post_stati( array( 'internal' => false ), 'object' );
+		if ( empty( $status_objects ) ) {
+			return false;
+		}
+
+		$status = array();
+		foreach ( $status_objects as $status_object ) {
+			$status[ $status_object->name ] = $status_object->label;
+		}
+
+		return $status;
 	}
 }
